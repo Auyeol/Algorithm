@@ -20,24 +20,17 @@ for i in range(1, len(G)):
         w_cnt = G[i].count(0)
         # print(f'{G[i]}, K = {K}')
         # print(m_cnt, w_cnt)
-        if m_cnt == 0:
-            total += 0
-        elif 0 < m_cnt <= K:
-            total += 1
-            # print(f'm_cnt + / {total}')
-        else:
-            total += m_cnt//K + 1
-            # print(f'm_cnt ++ / {total}')
 
-        if w_cnt == 0:
-            total += 0
-        elif 0 < w_cnt <= K:
+        while m_cnt > 0:
+            # print('m_cnt',m_cnt)
+            m_cnt -= K
             total += 1
-            # print(f'w_cnt + / {total}')
-        else:
-            total += w_cnt//K
-            # print(f'w_cnt ++ / {total}')
+            # print('m total',total)
+        while w_cnt > 0:
+            # print('w_cnt',w_cnt)
+            w_cnt -= K
+            total += 1
+            # print('w total ',total)
 
-        # print(total)
-# print('----')
+
 print(total)
