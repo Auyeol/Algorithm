@@ -20,4 +20,4 @@ for i in range(len(find_lst)):
     else:
         result.append(0)
 
-print(*result)
+print(' '.join(map(str, result)))
