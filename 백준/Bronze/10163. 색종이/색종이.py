@@ -3,7 +3,7 @@ import sys
 input = sys.stdin.readline
 N = int(input())
 
-board = [[0]*101 for _ in range(101)]
+board = [[0]*1001 for _ in range(1001)]
 result = []
 for i in range(1, N+1):
     stR, stC, width, height = map(int, input().split())
@@ -13,7 +13,7 @@ for i in range(1, N+1):
         for c in range(height):
             col = stC + c
 
-            if 0<=row<101 and 0<=col<=101:
+            if 0<=row<1001 and 0<=col<=1001:
                 board[row][col] = i
 
 for row in range(len(board)):
