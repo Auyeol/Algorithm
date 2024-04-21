@@ -2,9 +2,12 @@ import sys
 
 input = sys.stdin.readline
 N = int(input())
+num_dict = {}
+for i in range(1, N+1):
+    num_dict[i] = 0
 
 board = [[0]*1001 for _ in range(1001)]
-result = []
+
 for i in range(1, N+1):
     stR, stC, width, height = map(int, input().split())
 
@@ -12,17 +15,17 @@ for i in range(1, N+1):
         row = stR + r
         for c in range(height):
             col = stC + c
-
-            if 0<=row<1001 and 0<=col<=1001:
-                board[row][col] = i
+            board[row][col] = i
 
 for row in range(len(board)):
     for col in range(len(board[row])):
         if board[row][col] != 0:
-            result.append(board[row][col])
+            if board[row][col] in num_dict:
+                num_dict[board[row][col]] += 1
 
 if N == 0:
     print(0)
 else:
-    for j in range(1, N+1):
-        print(result.count(j))
+    for i in range(1, N+1):
+        print(num_dict[i])
+
