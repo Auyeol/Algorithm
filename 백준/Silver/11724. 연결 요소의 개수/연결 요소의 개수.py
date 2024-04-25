@@ -3,12 +3,15 @@ sys.setrecursionlimit(10 ** 5)
 input = sys.stdin.readline
 
 def dfs(now):
-    visited[now] = True
+    ST = []
+    ST.append(now)
 
-    for w in G[now]:
-        if not visited[w]:
-            dfs(w)
-            visited[w] = True
+    while ST:
+        v = ST.pop()
+        for w in G[v]:
+            if not visited[w]:
+                ST.append(w)
+                visited[w] = True
 
 N, M = map(int, input().split())
 G = [[] for _ in range(N+1)]
