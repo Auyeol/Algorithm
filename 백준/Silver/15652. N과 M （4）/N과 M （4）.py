@@ -1,8 +1,13 @@
-from itertools import combinations_with_replacement
+def dfs(now, start, result):
+    if now == M:
+        print(*result)
+        return
+
+    for i in range(start, N+1):
+        if not visited[i]:
+            dfs(now+1, start, result + [i])
+            start += 1
 
 N, M = map(int, input().split())
-arr = [(i+1) for i in range(N)]
-result = list(combinations_with_replacement(arr, M))
-
-for i in result:
-    print(*i)
+visited = [False] * (N+1)
+dfs(0, 1, [])
