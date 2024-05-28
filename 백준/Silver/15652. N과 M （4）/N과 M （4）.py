@@ -1,14 +1,8 @@
-def dfs(now, st, lst):
-    if now == M:
-        result.append(lst)
-        return
-    for i in range(st, N+1):
-        dfs(now + 1, st, lst + [i])
-        st += 1
+from itertools import combinations_with_replacement
 
-N, M = map(int, input().split())    # 첫째 줄에 자연수 N과 M이 주어진다
-result = []
-dfs(0,1,[])
+N, M = map(int, input().split())
+arr = [(i+1) for i in range(N)]
+result = list(combinations_with_replacement(arr, M))
 
-for elem in result:
-    print(*elem)
+for i in result:
+    print(*i)
