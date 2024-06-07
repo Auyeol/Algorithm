@@ -4,8 +4,4 @@ alpha_dict = {
     '8':'i','9':'j'
 }
 def solution(age):
-    result = ''
-    
-    for a in str(age):
-        result += alpha_dict[a]
-    return result
+    return ''.join(alpha_dict[i] for i in str(age))
